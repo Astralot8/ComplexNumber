@@ -9,7 +9,6 @@
 
 В данном задании методам charAt() и subSequence() всегда будут подаваться корректные входные параметры, поэтому их проверкой и обработкой ошибок заниматься не нужно. Тем более мы еще не проходили исключения.
 */
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {

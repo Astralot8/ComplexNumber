@@ -15,20 +15,27 @@ public class Main {
         class AsciiCharSequence implements CharSequence {
             byte[] data;
 
+            // Создаем конструктор класса AsciiCharSequence принимающий в параметр массив byte[] data
             public AsciiCharSequence(byte[] data) {
                 this.data = data;
             }
 
+            // Переопределяем метод length() интерфейса CharSequence который возвращает количество символов экземпляра класса AsciiCharSequence
             @Override
             public int length() {
                 return data.length;
             }
 
+            // Пишем свою реализацию метода charAt который принимает на вход переменную и возвращает приведенный к char элемент массива
             @Override
             public char charAt(int index) {
-                return (char) (data[index] & 0xff);
+                return (char) (data[index]);
             }
 
+            // Вот тут интересно, пишем свою реализацию метода subSequence(), в качестве параметров передаем ему начальное и конечное значение
+            // создаем переменную length которая вычисляет длинну для нового массива byte[] bytes
+            // затем циклом for перебираем элементы 2 массивов и записываем в новый массив byte[] bytes элементы из массива byte[] data
+            // и все это для того чтобы вернуть подпоследовательность символов (создать новый экземпляр класса AsciiCharSequence(bytes) который примет на вход новый массив)
             @Override
             public CharSequence subSequence(int start, int end) {
                 int length = end - start;
@@ -39,12 +46,12 @@ public class Main {
                 return new AsciiCharSequence(bytes);
             }
 
+            // Переопределяем метод toString() который возвращает новую строку которая в качестве параметра принимает последовательность символов массива
             @Override
             public String toString() {
                 return new String(data);
             }
         }
-
 
 
         byte[] ex = {72, 101, 108, 108, 111, 33};
